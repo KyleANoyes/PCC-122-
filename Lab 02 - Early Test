@@ -1,0 +1,167 @@
+#---------------------------------------------------------------------------------------------------------------------------------
+# This is a test of data management and is intended to serve as a data entry point for complex problems. Future iterations will need
+# better classes, arrays, and data writting systems. 
+
+
+#---------------------------------------------------------------------------------------------------------------------------------
+# This section contains the various variables/strings used within the employee data writing functions
+# The variables are temporarily commented out, but strings are used to prompt the correct input from the user
+
+name_string = "Enter employee's name: "
+#name = (input(name_string))
+
+site_string = "Enter employee's site: "
+#site = (input(site_string))
+
+wage_string = "Enter employee's hourly rate: "
+#wage = int(input(wage_string))
+
+h_week_string = "Enter employee's weekly hours: "
+#h_week = int(input(h_week_string))
+
+emp_status_string = "Is this employee active?: "
+#emp_status = int(input(emp_status_string))
+
+emp_length_string = "Is this a contract employee? (y/n): "
+#emp_length = int(input(emp_length_string))
+
+emp_end_string = "Will this employee's employment end in under 1 year? If yes, how many weeks remaining? (#/n): "
+#emp_end = int(input(emp_end_string))
+
+week = 52.1429
+#salary = (((wage*h_week) * week) // 1)
+
+confirmation_string = "Please confirm if this information is accurate (y/n): "
+#confirmation = (input(confirmation_string))
+
+success = "This employee's information has been successfully updated"
+failed = "The operation has been successfully cancelled, please re-input employee data"
+decline = "Employee data has not been changed"
+restart_inp = "Employee data has been discarded, please re-input data and/or check data input (y/n = y or n)"
+unknown_cmd = "Unknown command, please check data input (y/n = y or n)"
+brk = "- - - - - - - - - - - - - - - - - - - - - - - -"
+
+#---------------------------------------------------------------------------------------------------------------------------------
+print(brk)
+def employee_a():
+    while True:
+        change = (input("Would you like to edit Employee A's information? (y/n): "))
+        if change == "y":
+            from os.path import exists
+            file_exists = exists("employee_a.txt")
+            while True:
+                name = (input(name_string))
+                site = (input(site_string))
+                # wage can not accept a decimal, I need to fix this)
+                wage = int(input(wage_string))
+                h_week = int(input(h_week_string))
+                week = 52.1429
+                salary = (((wage*h_week) * week) // 1)
+                print(name, "-", site, "-", wage, "dollars per hour", "-", salary, "estimated gross pay")
+
+                confirmation = (input(confirmation_string))
+                if confirmation == "y":
+                    if file_exists == True:
+                            file = open("employee_a.txt","r+")
+                            file. truncate(0)
+                    print(name, "-", site, "-", wage, "dollars per hour", "-", salary, "estimated gross pay", file=open("employee_a.txt", "a"))
+                    print(success)
+                if confirmation != "y":
+                    print(restart_inp)
+                    continue
+                return
+        if change == "n":
+            print(decline)
+        else:
+            print(unknown_cmd)
+            continue
+        return
+employee_a()
+#---------------------------------------------------------------------------------------------------------------------------------
+print(brk)
+def employee_b():
+    while True:
+        change = (input("Would you like to edit Employee B's information? (y/n): "))
+        if change == "y":
+            from os.path import exists
+            file_exists = exists("employee_b.txt")
+            while True:
+                name = (input(name_string))
+                site = (input(site_string))
+                # wage can not accept a decimal, I need to fix this)
+                wage = int(input(wage_string))
+                h_week = int(input(h_week_string))
+                week = 52.1429
+                salary = (((wage*h_week) * week) // 1)
+                print(name, "-", site, "-", wage, "dollars per hour", "-", salary, "estimated gross pay")
+
+                confirmation = (input(confirmation_string))
+                if confirmation == "y":
+                    if file_exists == True:
+                            file = open("employee_b.txt","r+")
+                            file. truncate(0)
+                    print(name, "-", site, "-", wage, "dollars per hour", "-", salary, "estimated gross pay", file=open("employee_b.txt", "a"))
+                    print(success)
+                if confirmation != "y":
+                    print(restart_inp)
+                    continue
+                return
+        if change == "n":
+            print(decline)
+        else:
+            print(unknown_cmd)
+            continue
+        return
+employee_b()
+#---------------------------------------------------------------------------------------------------------------------------------
+print(brk)
+def employee_c():
+    while True:
+        change = (input("Would you like to edit Employee C's information? (y/n): "))
+        if change == "y":
+            from os.path import exists
+            file_exists = exists("employee_c.txt")
+            while True:
+                name = (input(name_string))
+                site = (input(site_string))
+                # wage can not accept a decimal, I need to fix this)
+                wage = int(input(wage_string))
+                h_week = int(input(h_week_string))
+                week = 52.1429
+                salary = (((wage*h_week) * week) // 1)
+                print(name, "-", site, "-", wage, "dollars per hour", "-", salary, "estimated gross pay")
+
+                confirmation = (input(confirmation_string))
+                if confirmation == "y":
+                    if file_exists == True:
+                            file = open("employee_c.txt","r+")
+                            file. truncate(0)
+                    print(name, "-", site, "-", wage, "dollars per hour", "-", salary, "estimated gross pay", file=open("employee_c.txt", "a"))
+                    print(success)
+                if confirmation != "y":
+                    print(restart_inp)
+                    continue
+                return
+        if change == "n":
+            print(decline)
+        else:
+            print(unknown_cmd)
+            continue
+        return
+employee_c()
+
+print(brk)
+print("All employee data has been saved successfully")
+
+#---------------------------------------------------------------------------------------------------------------------------------
+# This stupid import just doesn't work >:( 
+# I need to find a way to import data from these files and restructure the written data
+
+# with open("employee_a.txt", "a") as a_data:
+#     print(a_data, file=a_data)
+
+# with open("employee_b.txt", "a") as b_data:
+#     print(a_data, file=a_data)
+
+# with open("employee_c.txt", "a") as c_data:
+#     print(a_data, file=a_data)
